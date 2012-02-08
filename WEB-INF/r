@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd /opt/T/bin
+./shutdown.sh
+
+rm /opt/T/logs/catalina.out
+touch /opt/T/logs/catalina.out
+
+cd /opt/T/W
+ant clean
+ant tests
+ant dbTests
+ant build
+
+cd /opt/T/bin
+./startup.sh
